@@ -1,1 +1,129 @@
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 50% 0%,#5735a8,#170e36 70%);color:#fff}body{display:flex;justify-content:center}#app{width:min(100%,500px);min-height:100dvh;display:flex;flex-direction:column;padding:12px 14px 8px;background:linear-gradient(160deg,#322064,#1b123d 70%)}header{display:flex;align-items:center;justify-content:space-between;padding:5px 2px 12px}.brand{display:flex;flex-direction:column;gap:1px}.brand span{color:#ffdc61;font-weight:900;font-size:12px;letter-spacing:1.5px}.brand strong{font-size:21px;letter-spacing:1px}.screen{display:none;flex:1;text-align:center;min-height:0}.screen.active{display:flex;flex-direction:column;align-items:center;gap:10px}button{font:inherit;cursor:pointer;border:0;color:#fff;background:#6940ba;border-radius:15px;font-weight:900;padding:13px 18px;box-shadow:0 5px 0 #39216c;touch-action:manipulation;min-height:44px}button:active{transform:translateY(3px);box-shadow:0 2px 0 #39216c}button.primary{background:linear-gradient(135deg,#ffce39,#ff833e);color:#322047;box-shadow:0 5px 0 #a64a34;font-size:20px}button.small{padding:7px 11px;min-height:37px;font-size:18px}.screen>button{width:min(100%,300px)}.hero{padding:10px 0 8px}.hero h1{font-size:clamp(42px,11vw,66px);line-height:.95;margin:10px 0;text-shadow:0 5px #bd4e8f,0 9px #452768;color:#fff3a0;letter-spacing:2px}.hero p{color:#d7c7ff;font-size:13px}.mascot{position:relative;font-size:100px;color:#ffb83c;line-height:1;text-shadow:inset 0 0 0 #fff,0 10px 0 #df6e49;animation:bob 1.5s infinite alternate}.mascot:before,.mascot:after{content:'•';position:absolute;color:#362052;font-size:30px;top:28px}.mascot:before{left:calc(50% - 23px)}.mascot:after{left:calc(50% + 9px)}.mascot span{position:absolute;color:#362052;left:calc(50% - 12px);top:45px;font-size:30px}@keyframes bob{to{transform:translateY(-12px)}}.stat,.credit{color:#ffdd77;font-size:13px}.credit{margin-top:auto}h2{font-size:27px;margin:15px 0 2px;color:#ffda6e}#levelGrid{width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;overflow-y:auto;padding:6px 2px 14px;max-height:65dvh}#levelGrid button{padding:10px 1px;border-radius:12px;font-size:15px;background:#2eb4ca;box-shadow:0 4px #146b85}#levelGrid button.locked{background:#51446e;color:#9e93b9;box-shadow:0 4px #322748}#levelGrid button.completed{background:#ae59c9;box-shadow:0 4px #74388a}#worldLabel{font-size:13px;color:#d4c3fc;margin:0}.instructions{text-align:left;background:#35245f;padding:14px;border-radius:18px;width:100%;line-height:1.4}.instructions p{margin:10px 0}#skins{width:100%;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;overflow:auto;max-height:60dvh}.skin{background:#392665;border-radius:18px;padding:13px;display:flex;align-items:center;flex-direction:column;gap:8px}.skin .ball{height:50px;width:50px;border-radius:50%;box-shadow:inset -8px -9px #0003,inset 5px 6px #fff6}.skin button{font-size:12px;padding:8px}.hud{display:flex;justify-content:space-between;align-items:center;width:100%;font-size:14px;font-weight:900;color:#ffdb69}#game{gap:6px}#canvasWrap{position:relative;width:100%;max-height:calc(100dvh - 205px);aspect-ratio:2/3;min-height:0;overflow:hidden;border:3px solid #b793ff;border-radius:17px;background:#36297a;box-shadow:0 6px 0 #130b29}canvas{display:block;width:100%;height:100%;touch-action:none}.controls{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;user-select:none}.controls button{width:32%;font-size:24px;background:#27c3d7;box-shadow:0 5px #16748e;touch-action:none}.controls span{font-size:10px;color:#bdb0dd;font-weight:900}.overlay{position:absolute;inset:0;background:#1c123cdb;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:22px}.overlay h2{font-size:30px}.overlay p{line-height:1.5}.overlay button{width:min(100%,250px)}.hidden{display:none!important}footer{font-size:10px;text-align:center;letter-spacing:1px;color:#9987c4;margin-top:auto;padding-top:8px}@media(max-height:670px){.hero{padding:0}.mascot{font-size:65px}.hero h1{font-size:42px}.screen.active{gap:7px}.screen>button{padding:10px}.hero p{margin:6px}}
+
+/* Mobile arcade controls: jump left, analog joystick right. */
+.controls{min-height:91px;justify-content:space-between;padding:2px 8px 7px;gap:6px;touch-action:none}
+.controls #jump{width:84px;height:78px;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;background:linear-gradient(145deg,#ffdf5d,#ff873d);color:#392052;box-shadow:0 6px #a94b41;touch-action:none;flex-shrink:0}
+#jump span{font-size:29px;line-height:1.1}#jump small{font-size:13px;font-weight:1000;letter-spacing:1px}
+.controls .control-hint{font-size:10px;line-height:1.6;flex:1;color:#e6d5ff}
+#joystick{height:86px;width:86px;border-radius:50%;background:radial-gradient(circle,#7356c9,#39246f);border:3px solid #d4b8ff;box-shadow:inset 0 3px 10px #150a42,0 4px 0 #160e36;display:flex;align-items:center;justify-content:center;touch-action:none;flex-shrink:0}
+#joystickKnob{height:42px;width:42px;border-radius:50%;background:linear-gradient(145deg,#62f4ee,#23a4e8);box-shadow:inset 0 3px 5px #fff8,0 4px 9px #160c4a;transform:translateX(0);pointer-events:none;will-change:transform}
+header .brand{align-items:center;text-align:center;flex:1;padding-left:42px}header .brand span{color:#fcc224}header .brand strong{font-size:22px}header #sound{flex-shrink:0}
+#canvasWrap{max-height:calc(100dvh - 225px)}
+@media(max-height:670px){.controls{min-height:76px}.controls #jump{height:66px;width:72px}#joystick{height:72px;width:72px}#joystickKnob{height:36px;width:36px}}
+
+/* Premium, centered, legible arcade title; no extra company-name repeats. */
+.hero{width:100%;display:flex;flex-direction:column;align-items:center}
+.hero .game-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;margin:10px auto 14px;line-height:.86;transform:rotate(-3deg);filter:drop-shadow(0 9px 0 #170c43) drop-shadow(0 12px 12px #08051a99)}
+.game-logo .logo-line{display:block;font-family:system-ui,Arial,sans-serif;font-size:clamp(49px,13vw,77px);font-weight:1000;letter-spacing:-2.5px;-webkit-text-stroke:2px #fff8;paint-order:stroke fill;text-shadow:0 3px 0 #fff7,0 7px 0 #6132a6,3px 9px 0 #3a1a77}
+.game-logo .bounce{background:linear-gradient(180deg,#fff7a2 0%,#fcc224 45%,#ff7e31 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.game-logo .blitz{font-size:clamp(61px,16vw,94px);background:linear-gradient(180deg,#c9fff9 0%,#4ee8f6 40%,#3d85ff 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.game-logo .logo-bang{color:#ff5f9d;-webkit-text-stroke:2px #ffe5f3;filter:drop-shadow(2px 2px 0 #a72e76)}
+.hero .game-logo:before{content:'✦';position:absolute;color:#ffe45e;font-size:30px;left:-13px;top:-9px;text-shadow:0 0 10px #ffdc45}
+.hero .game-logo:after{content:'✦';position:absolute;color:#70faff;font-size:25px;right:-14px;bottom:-5px;text-shadow:0 0 10px #2cecf4}
+@media(max-height:670px){.game-logo .logo-line{font-size:46px}.game-logo .blitz{font-size:59px}.hero .game-logo{margin:2px auto 8px}}
+
+/* Gold #fcc224 title and single centered company brand. */
+header .brand{padding-left:42px;justify-content:center}
+.game-logo .bounce,.game-logo .blitz{background:none!important;background-clip:initial!important;-webkit-background-clip:initial!important;color:#fcc224!important;-webkit-text-stroke:2px #fff0a6;text-shadow:0 3px 0 #ffe996,0 7px 0 #8b5811,3px 10px 0 #382047}
+.game-logo .logo-bang{color:#fcc224!important;-webkit-text-stroke:2px #fff0a6}
+
+/* Responsive desktop/tablet framing: preserve the 400:600 canvas proportions. */
+html,body{width:100%;min-height:100%;}
+body{overflow-x:hidden;}
+#app{width:min(100%,500px);min-height:100dvh;margin-inline:auto;}
+#game.active{width:100%;}
+#canvasWrap{
+  width:min(100%,calc((100dvh - 225px)*2/3));
+  max-width:100%;
+  max-height:none;
+  aspect-ratio:2/3;
+  height:auto;
+  flex:none;
+  margin-inline:auto;
+}
+#canvasWrap canvas{display:block;width:100%;height:100%;aspect-ratio:2/3;}
+@media (min-width:700px){
+ body{background:radial-gradient(circle at 20% 30%,#7040b6 0%,transparent 35%),radial-gradient(circle at 80% 70%,#1a96ba 0%,transparent 36%),#100a29;}
+ #app{border-left:2px solid #fcc22466;border-right:2px solid #fcc22466;box-shadow:0 0 70px #0009;}
+}
+@media(max-height:670px){
+ #canvasWrap{width:min(100%,calc((100dvh - 195px)*2/3));max-height:none;}
+}
+
+/* Clear jump button keyboard hint; no gameplay changes. */
+.controls #jump{min-height:86px;height:auto;padding:7px 4px;gap:2px}
+.controls #jump span{font-size:24px;line-height:1}
+.controls #jump small{font-size:15px;line-height:1.1;font-weight:1000}
+.controls #jump em{font-style:normal;font-size:9px;line-height:1.2;font-weight:900;letter-spacing:.15px;white-space:nowrap}
+@media(max-height:670px){.controls #jump{min-height:74px;height:auto;padding:4px 2px}.controls #jump span{font-size:19px}.controls #jump small{font-size:13px}.controls #jump em{font-size:8px}}
+
+/* V2: desktop and embedded game maintain native 400x600 aspect ratio. */
+@media (min-width: 700px) {
+  #app { width: min(100%, 460px); max-width: 460px; }
+  #game.active { flex: 1 0 auto; }
+}
+#game.active #canvasWrap {
+  box-sizing: border-box;
+  flex: 0 0 auto !important;
+  width: min(100%, calc((100dvh - 245px) * 2 / 3)) !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  aspect-ratio: 2 / 3 !important;
+  margin-inline: auto;
+}
+#game.active #canvasWrap canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  aspect-ratio: 2 / 3 !important;
+  object-fit: contain;
+}
+@media (max-height: 540px) and (min-width: 700px) {
+  #game.active #canvasWrap { width: min(100%, 240px) !important; }
+  #app { min-height: 540px; }
+}
+
+/* JUMP button: single centered label only. */
+.controls #jump{font-size:19px;font-weight:1000;letter-spacing:1px;line-height:1.1;text-align:center;}
+
+/* Desktop aspect-ratio fix v3: never independently stretch canvas axes. */
+#game.active #canvasWrap {
+  position: relative !important;
+  display: block !important;
+  flex: none !important;
+  box-sizing: border-box !important;
+  width: min(100%, calc((100dvh - 230px) * 2 / 3)) !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3 !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+}
+#game.active #canvasWrap > canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+}
+@media (min-width: 700px) {
+  #app { width: min(100%, 500px) !important; }
+  #game.active #canvasWrap { width: min(100%, calc((100dvh - 230px) * 2 / 3)) !important; }
+}
+@media (max-height: 550px) and (min-width: 700px) {
+  #app { min-height: 0 !important; }
+  #game.active #canvasWrap { width: min(100%, 220px) !important; }
+}
+
+/* Independent music control, retaining the existing sound-effects toggle. */
+header .audio-buttons{display:flex;align-items:center;gap:6px;flex-shrink:0}
+header .audio-buttons .small{font-size:13px;padding:7px 9px;min-height:37px;white-space:nowrap}
+header .brand{padding-left:0!important;min-width:0;flex:1}
+header .brand span{font-size:clamp(9px,2.5vw,12px);letter-spacing:.6px}
+@media(max-width:360px){header .audio-buttons{gap:3px}header .audio-buttons .small{padding:6px;font-size:12px}}
