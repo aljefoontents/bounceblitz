@@ -49,3 +49,10 @@ body{overflow-x:hidden;}
 @media(max-height:670px){
  #canvasWrap{width:min(100%,calc((100dvh - 195px)*2/3));max-height:none;}
 }
+
+/* Clear jump button keyboard hint; no gameplay changes. */
+.controls #jump{min-height:86px;height:auto;padding:7px 4px;gap:2px}
+.controls #jump span{font-size:24px;line-height:1}
+.controls #jump small{font-size:15px;line-height:1.1;font-weight:1000}
+.controls #jump em{font-style:normal;font-size:9px;line-height:1.2;font-weight:900;letter-spacing:.15px;white-space:nowrap}
+@media(max-height:670px){.controls #jump{min-height:74px;height:auto;padding:4px 2px}.controls #jump span{font-size:19px}.controls #jump small{font-size:13px}.controls #jump em{font-size:8px}}
