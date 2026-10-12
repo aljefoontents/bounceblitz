@@ -56,3 +56,67 @@ body{overflow-x:hidden;}
 .controls #jump small{font-size:15px;line-height:1.1;font-weight:1000}
 .controls #jump em{font-style:normal;font-size:9px;line-height:1.2;font-weight:900;letter-spacing:.15px;white-space:nowrap}
 @media(max-height:670px){.controls #jump{min-height:74px;height:auto;padding:4px 2px}.controls #jump span{font-size:19px}.controls #jump small{font-size:13px}.controls #jump em{font-size:8px}}
+
+/* V2: desktop and embedded game maintain native 400x600 aspect ratio. */
+@media (min-width: 700px) {
+  #app { width: min(100%, 460px); max-width: 460px; }
+  #game.active { flex: 1 0 auto; }
+}
+#game.active #canvasWrap {
+  box-sizing: border-box;
+  flex: 0 0 auto !important;
+  width: min(100%, calc((100dvh - 245px) * 2 / 3)) !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  aspect-ratio: 2 / 3 !important;
+  margin-inline: auto;
+}
+#game.active #canvasWrap canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  aspect-ratio: 2 / 3 !important;
+  object-fit: contain;
+}
+@media (max-height: 540px) and (min-width: 700px) {
+  #game.active #canvasWrap { width: min(100%, 240px) !important; }
+  #app { min-height: 540px; }
+}
+
+/* JUMP button: single centered label only. */
+.controls #jump{font-size:19px;font-weight:1000;letter-spacing:1px;line-height:1.1;text-align:center;}
+
+/* Desktop aspect-ratio fix v3: never independently stretch canvas axes. */
+#game.active #canvasWrap {
+  position: relative !important;
+  display: block !important;
+  flex: none !important;
+  box-sizing: border-box !important;
+  width: min(100%, calc((100dvh - 230px) * 2 / 3)) !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3 !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+}
+#game.active #canvasWrap > canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+}
+@media (min-width: 700px) {
+  #app { width: min(100%, 500px) !important; }
+  #game.active #canvasWrap { width: min(100%, calc((100dvh - 230px) * 2 / 3)) !important; }
+}
+@media (max-height: 550px) and (min-width: 700px) {
+  #app { min-height: 0 !important; }
+  #game.active #canvasWrap { width: min(100%, 220px) !important; }
+}
