@@ -120,3 +120,10 @@ body{overflow-x:hidden;}
   #app { min-height: 0 !important; }
   #game.active #canvasWrap { width: min(100%, 220px) !important; }
 }
+
+/* Independent music control, retaining the existing sound-effects toggle. */
+header .audio-buttons{display:flex;align-items:center;gap:6px;flex-shrink:0}
+header .audio-buttons .small{font-size:13px;padding:7px 9px;min-height:37px;white-space:nowrap}
+header .brand{padding-left:0!important;min-width:0;flex:1}
+header .brand span{font-size:clamp(9px,2.5vw,12px);letter-spacing:.6px}
+@media(max-width:360px){header .audio-buttons{gap:3px}header .audio-buttons .small{padding:6px;font-size:12px}}
